@@ -57,9 +57,10 @@
   // ---------- Years of experience ----------
   var now = new Date();
   var months = (now.getFullYear() - CAREER_START.getFullYear()) * 12 + (now.getMonth() - CAREER_START.getMonth());
-  var years = Math.floor(months / 12);
+  // Shown as years.months, e.g. 4.2 = 4 years 2 months
+  var experience = Math.floor(months / 12) + "." + (months % 12);
   document.querySelectorAll("[data-years]").forEach(function (el) {
-    el.textContent = years + "+";
+    el.textContent = experience;
   });
 
   var yearEl = document.querySelector("[data-current-year]");
